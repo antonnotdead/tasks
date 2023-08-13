@@ -11,20 +11,20 @@ public class Main {
             if (n > 3){
                 break;
             }
-            else {
-                System.out.println("try again!");
-            }
+            System.out.println("try again!");
+
         }
         int[] mas = new int[n];
 
         int even = 0;
         for (int i = 0; i <n; i++){
            mas[i] = (int)(Math.random()*n);
-           System.out.println(mas[i] + " ");
+           System.out.print(mas[i] + " ");
            if (mas[i] % 2 == 0){
                even++;
            }
         }
+        System.out.println();
         if (even == 0){
            System.out.println("There are no any even numbers");
         }
@@ -32,7 +32,9 @@ public class Main {
             int[] e_mas = new int[even];
             for (int i = 0; i < n; i++){
                 if(mas[i] % 2 == 0){
-                    e_mas[]
+                    e_mas[even-1] = mas[i];
+                    System.out.print(e_mas[even-1]+ " ");
+                    even--;
                 }
             }
         }
