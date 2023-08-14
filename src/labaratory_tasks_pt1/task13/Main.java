@@ -28,14 +28,14 @@ public class Main {
             mas[i][max_index] = mas[i][0];
             mas[i][0] = temp;
             max_index = 0;
-            for (int k = m-1; k >= 0; k--){
+            for (int k = m-1; k > 0; k--){
                 if (mas[i][min_index] > mas[i][k-1]){
-                    min_index = k;
+                    min_index = k-1;
                 }
             }
             temp = mas[i][min_index];
-            mas[i][min_index] = mas[i][0];
-            mas[i][0] = temp;
+            mas[i][min_index] = mas[i][m-1];
+            mas[i][m-1] = temp;
             min_index = m-1;
         }
         for (int i = 0; i < n; i++){
