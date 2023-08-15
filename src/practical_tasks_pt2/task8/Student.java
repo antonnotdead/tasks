@@ -1,4 +1,4 @@
-package practical_tasks_pt2.task7;
+package practical_tasks_pt2.task8;
 
 import java.util.Arrays;
 
@@ -10,9 +10,9 @@ public class Student {
         numberCourse = 1;
         nameStudent = "noname";
     }
-    public Student(int Course, String name){
-        nameStudent = name;
-        numberCourse = Course;
+    public Student(int numberCourse, String nameStudent){
+        this.nameStudent = nameStudent;
+        this.numberCourse = numberCourse;
     }
     public String show() {
         return "numberCourse=" + numberCourse +
