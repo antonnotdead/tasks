@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class ArrayString {
     public static void main(String[] args){
         ArrayString slova = new ArrayString(5);
-        slova.sort();
+//        slova.sort();
+        slova.showleght();
     }
     private String[] strings;
     public ArrayString(int N){
@@ -23,8 +24,8 @@ public class ArrayString {
         for (int i = 0; i < stringsclone.length; i++){
             stringsclone[i] = stringsclone[i].trim(); //removing whitespace`s from both sides
             words = 0;
-            for(int j = 0; j < stringsclone[i].length(); j++){
-                if (stringsclone[i].charAt(j) == ' '){
+            for(int j = 0; j < stringsclone[i].length()-1; j++){
+                if (stringsclone[i].charAt(j) == ' ' && stringsclone[i].charAt(j+1) != ' '){
                     words++;
                 }
             }
@@ -46,8 +47,20 @@ public class ArrayString {
                 }
             }
         }
+        System.out.println("Sorted array: ");
         for(int i = 0; i < stringsclone.length; i++){
             System.out.println(stringsclone[i]);
+        }
+    }
+
+    public void showleght(){
+        for (int i = 0; i < strings.length; i++) {
+            System.out.println(i+1 + ". " + strings[i].length());
+        }
+    }
+    public void outputFromTo(int f, int l){
+        for (int i = f; i < l; i++){
+            System.out.println(strings[i]);
         }
     }
 }
