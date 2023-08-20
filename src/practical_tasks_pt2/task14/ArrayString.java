@@ -23,8 +23,8 @@ public class ArrayString {
         for (int i = 0; i < stringsclone.length; i++){
             stringsclone[i] = stringsclone[i].trim(); //removing whitespace`s from both sides
             words = 0;
-            for(int j = 0; j < stringsclone[i].length(); j++){
-                if (stringsclone[i].charAt(j) == ' '){
+            for(int j = 0; j < stringsclone[i].length()-1; j++){
+                if (stringsclone[i].charAt(j) == ' ' && stringsclone[i].charAt(j+1) != ' '){
                     words++;
                 }
             }
