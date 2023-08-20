@@ -3,6 +3,10 @@ package practical_tasks_pt2.task14;
 import java.util.Scanner;
 
 public class ArrayString {
+    public static void main(String[] args){
+        ArrayString slova = new ArrayString(5);
+        slova.sort();
+    }
     private String[] strings;
     public ArrayString(int N){
         strings = new String[N];
@@ -27,20 +31,23 @@ public class ArrayString {
             worldarray[i] = words;
         }
         //sorting
-        for(int i = 1; i < stringsclone.length; i++) {
+        for(int i = 0; i < stringsclone.length; i++) {
             for (int j = 0; j < stringsclone.length - 1; j++) {
                 int flagword;
                 String flagstring;
-                if (worldarray[j] < worldarray[j - 1]) {
-                    flagstring = stringsclone[j - 1];
-                    stringsclone[j - 1] = stringsclone[j];
+                if (worldarray[j] > worldarray[j + 1]) {
+                    flagstring = stringsclone[j + 1];
+                    stringsclone[j + 1] = stringsclone[j];
                     stringsclone[j] = flagstring;
 
-                    flagword = worldarray[j - 1];
-                    worldarray[j - 1] = worldarray[j];
+                    flagword = worldarray[j + 1];
+                    worldarray[j + 1] = worldarray[j];
                     worldarray[j] = flagword;
                 }
             }
+        }
+        for(int i = 0; i < stringsclone.length; i++){
+            System.out.println(stringsclone[i]);
         }
     }
 }
