@@ -6,7 +6,8 @@ public class ArrayString {
     public static void main(String[] args){
         ArrayString slova = new ArrayString(5);
 //        slova.sort();
-        slova.showlenght();
+//        slova.showlenght();
+        slova.delNotLetterNotNum();
     }
     private String[] strings;
     public ArrayString(int N){
@@ -94,6 +95,15 @@ public class ArrayString {
         System.out.println("Enter index of string: ");
         int index = sc.nextInt();
         strings[index] = strings[index].replaceAll("[A-Z]", "");
+        System.out.println("Changed line: " + strings[index]);
+    }
+
+    public void delNotLetterNotNum(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter index of string: ");
+        int index = sc.nextInt();
+        strings[index] = strings[index].replaceAll("\\W", "");
+        strings[index] = strings[index].replaceAll("_", "");
         System.out.println("Changed line: " + strings[index]);
     }
 }
