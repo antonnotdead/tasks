@@ -106,4 +106,19 @@ public class ArrayString {
         strings[index] = strings[index].replaceAll("_", "");
         System.out.println("Changed line: " + strings[index]);
     }
+    public void wordswithNum(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter index of string: ");
+        int index = sc.nextInt();
+        String[] word = strings[index].split(" ");
+        for (String processedword : word) {
+            for (int j = 0; j < processedword.length(); j++) {
+                if (Character.isDigit(processedword.charAt(j))) {
+                    System.out.print(processedword + " ");
+                    break;
+                }
+            }
+        }
+    }
+
 }
