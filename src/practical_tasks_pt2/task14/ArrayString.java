@@ -106,7 +106,7 @@ public class ArrayString {
         strings[index] = strings[index].replaceAll("_", "");
         System.out.println("Changed line: " + strings[index]);
     }
-    public void wordswithNum(){
+    public void printwordswithNum(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter index of string: ");
         int index = sc.nextInt();
@@ -120,5 +120,32 @@ public class ArrayString {
             }
         }
     }
+    public void getsumOfNum() {
+        int sum = 0;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter index of string: ");
+        int index = sc.nextInt();
+        String str = strings[index];
+        for (int i = 0; i < str.length(); i++){
+            if(Character.isDigit(str.charAt(i))){
+                sum += Integer.valueOf(str.charAt(i));
+            }
+        }
+        System.out.println(sum);
+    }
 
+    public void printLowerCaseWords(){
+        for (int i = 0; i < strings.length; i++){
+            String words[] = strings[i].split(" ");
+            for(int j= 0; j < words.length; j++){
+                String word = words[j];
+                for (int k = 0; k < word.length(); k ++){
+                    if (Character.isUpperCase(word.charAt(k))){
+                        j++;
+                    }
+                }
+                System.out.println(word);
+            }
+        }
+    }
 }
