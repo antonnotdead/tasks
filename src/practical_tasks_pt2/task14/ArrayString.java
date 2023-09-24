@@ -133,7 +133,7 @@ public class ArrayString {
         }
         System.out.println(sum);
     }
-
+    //переделать слишком долго может выполняться
     public void printLowerCaseWords(){
         for (int i = 0; i < strings.length; i++){
             String words[] = strings[i].split(" ");
@@ -147,5 +147,103 @@ public class ArrayString {
                 System.out.println(word);
             }
         }
+    }
+    public void getNums() {
+        for (int index = 0; index < strings.length; index++) {
+            String str = strings[index];
+            for (int i = 0; i < str.length(); i++) {
+                if (Character.isDigit(str.charAt(i))) {
+                    System.out.print(str.charAt(i) + "\t");
+                }
+            }
+            System.out.println();
+        }
+
+    }
+    public void sameWords() {
+        int amountOfArrayWords = 0;
+        for (int i = 0; i < strings.length; i++) {
+            String[] wordsInCurrentString = strings[i].split("[ .,]");
+            for (int j = 0; j < wordsInCurrentString.length; j++) {
+                amountOfArrayWords++;
+            }
+        }
+        String[] allWords = new String[amountOfArrayWords];
+        int wordscounter = 0;
+        for (int i = 0; i < strings.length; i++) {
+            String[] wordsInCurrentString = strings[i].split("[ .,]");
+            for (int j = 0; j < wordsInCurrentString.length; j++){
+                allWords[wordscounter] = wordsInCurrentString[j];
+                wordscounter++;
+            }
+        }
+        for (int i = 0; i < allWords.length - 1; i++) {
+            for (int j = i + 1; j < allWords.length; j++) {
+                if (allWords[i].compareTo(allWords[j]) > 0){
+                    String flagWord = allWords[i];
+                    allWords[i] = allWords[j];
+                    allWords[j] = flagWord;
+                }
+            }
+        }
+        System.out.println('\n');
+        for (int i = 0; i < allWords.length; i++)
+            System.out.print(allWords[i] + " ");
+        System.out.println("List of the same words: ");
+        int numberOfSameWords = 1;
+        for (int i = 0; i < allWords.length; i++){
+            if ((i != allWords.length - 1) && (allWords[i].equals(allWords[i + 1]))) {
+                numberOfSameWords++;
+            } else if ((i == allWords.length - 1) && (allWords[i].equals(allWords[i - 1]))){
+                if (numberOfSameWords > 1)
+                    System.out.println(allWords[i] + ": " + numberOfSameWords);
+            } else if (numberOfSameWords > 1){
+                System.out.println(allWords[i] + ": " + numberOfSameWords);
+                numberOfSameWords = 1;
+            }
+        }
+    }
+    public void substrings(){
+        Scanner cs = new Scanner(System.in);
+        String new_string = "";
+        System.out.println("Enter the first element's index of the string: ");
+        int i = cs.nextInt();
+        System.out.println("Enter the last element's index of the string: ");
+        int j = cs.nextInt();
+        for (int k = 0; k < strings.length; k++){
+            if (j > strings[k].length() || i > strings[k].length()){
+                System.out.println("Wrong input! String shorter than the number of index.");
+            }else {
+                new_string += strings[k].substring(i, j+1);
+            }
+        }
+        System.out.println("United string:" + new_string);
+    }
+    public void Change1stCharacterToUpperCase(){
+        Scanner in = new Scanner(System.in);
+        int i = in.nextInt();
+        String[] words = strings[i].split("[ .,]");
+        for (int u = 0; u < words.length; u++) {
+            String current_word = words[u];
+            String first_char = String.valueOf(current_word.charAt(0));
+            words[u] = current_word.replaceFirst(first_char, first_char.toUpperCase());
+        }
+        String replacement = "";
+        for (int j = 0; j < words.length; j++) {
+            replacement =replacement + words[j] + " ";
+        }
+        strings[i] = replacement;
+        System.out.println("Changed array: ");
+        for (int l = 0; l < strings.length; l++) {
+            System.out.println(strings[l]);
+        }
+    }
+    public void updateStr(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter index of string: ");
+        int index = sc.nextInt();
+        System.out.println("Enter updated string:");
+        strings[index] = sc.nextLine();
+        System.out.println("Changes applied");
     }
 }
