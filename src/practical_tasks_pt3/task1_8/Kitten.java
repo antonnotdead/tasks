@@ -1,4 +1,4 @@
-package practical_tasks_pt3.task1;
+package practical_tasks_pt3.task1_8;
 
 public class Kitten extends Cat{
     private String feedingTime;
@@ -10,6 +10,10 @@ public class Kitten extends Cat{
     public Kitten(int age, int weight, String name, int mice, String feedingTime){
         super(age, weight, name, mice);
         this.feedingTime = feedingTime;
+    }
+    public Kitten(Kitten ob){
+        super(ob);
+        this.feedingTime = ob.feedingTime;
     }
     public void setFeedingTime(String feedingTime) {
         this.feedingTime = feedingTime;

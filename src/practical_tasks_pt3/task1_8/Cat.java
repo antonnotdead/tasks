@@ -1,4 +1,4 @@
-package practical_tasks_pt3.task1;
+package practical_tasks_pt3.task1_8;
 
 public class Cat extends Animal{
     private int mice;
@@ -10,6 +10,16 @@ public class Cat extends Animal{
         super(age, weight, name);
         this.mice = mice;
     }
+    public Cat(Cat ob){
+        super(ob);
+        this.mice = ob.mice;
+    }
+
+    @Override
+    public void voice() {
+        System.out.println("Meow");
+    }
+
     public void setMice(int mice) {
         this.mice = mice;
     }
